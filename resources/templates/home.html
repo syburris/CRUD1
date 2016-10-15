@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+{{^name}}
+<form action="/login" method="post">
+    <input type="text" placeholder="Enter name" name="userName"/>
+    <input type="password" placeholder="Password" name="password"/>
+    <button type="submit">Login</button>
+</form>
+{{/name}}
+
+{{#name}}
+Hello, {{name}}! <br><br>
+<form action="/logout" method="post">
+    <button type="submit">Log Out</button>
+</form><br><br>
+{{/name}}
+
+</body>
+</html>
