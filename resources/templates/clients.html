@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clients</title>
+</head>
+<body>
+Welcome {{name}},
+
+{{^name}}
+<form action="/login" method="post">
+    <input type="text" placeholder="Enter Cleint's Name" name="clientName"/>
+    <input type="text" placeholder="Enter Hospital" name="password"/>
+    <button type="submit">Login</button>
+</form>
+{{/name}}
+
+</body>
+</html>
