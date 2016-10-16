@@ -16,9 +16,31 @@
 
 {{#name}}
 Hello, {{name}}! <br><br>
+
+
 <form action="/logout" method="post">
     <button type="submit">Log Out</button>
 </form><br><br>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Hospital</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Submitted By</th>
+    </tr>
+    {{#clients}}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{hospital}</td>
+        <td>{{email}}</td>
+        <td>{{phone}}</td>
+        <td>{{user.name}}</td>
+    </tr>
+    {{/clients}}
+</table>
+
 {{/name}}
 
 </body>

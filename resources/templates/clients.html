@@ -8,10 +8,11 @@
 Welcome {{name}},
 
 {{^name}}
-<form action="/login" method="post">
+<form action="/create-client" method="post">
     <input type="text" placeholder="Enter Cleint's Name" name="clientName"/>
     <input type="text" placeholder="Enter Hospital" name="password"/>
-    <button type="submit">Login</button>
+    <input type="text" placeholder="Enter Email" name="clientEmail"/>
+    <button type="submit">Submit</button>
 </form>
 {{/name}}
 

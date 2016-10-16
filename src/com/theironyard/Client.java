@@ -16,6 +16,7 @@ public class Client {
     String state;
     String zip;
     ArrayList<Tank> tanks = new ArrayList<Tank>();
+    int userID;
 
 
 }
