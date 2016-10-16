@@ -71,6 +71,8 @@ public class Main {
     public static void createTables(Connection conn) throws SQLException {
         Statement stmt = conn.createStatement();
         stmt.execute("CREATE TABLE IF NOT EXISTS users (id IDENTITY, name VARCHAR, password VARCHAR)");
+        stmt.execute("CREATE TABLE IF NOT EXISTS clients (id IDENTITY, name VARCHAR, hospital VARCHAR, " +
+                "email VARCHAR, phone VARCHAR, street VARCHAR, city VARCHAR, state VARCHAR, zip VARCHAR)");
     }
 
     public static void insertUser(Connection conn, String name, String password) throws SQLException {
