@@ -28,10 +28,10 @@ public class Main {
                     if (user != null) {
                         m.put("name", user.name);
                     }
-                    return new ModelAndView(m,"home.html");
                     ArrayList<Client> clients = selectClients(conn, user);
                     m.put("clients", clients);
-
+                    selectClients(conn,user);
+                    return new ModelAndView(m,"home.html");
                 },
                 new MustacheTemplateEngine()
         );
@@ -116,6 +116,9 @@ public class Main {
             clients.add(client);
         }
         return clients;
-
+    }
+    public void insertClients(Connection conn, String name, String hospital, String email, String phone, String street,
+                              String city, String state, String zip, User user) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("INSERT INTO clients VALUES (null)");
     }
 }
