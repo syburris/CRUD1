@@ -22,6 +22,14 @@ Hello, {{name}}! <br><br>
     <button type="submit">Log Out</button>
 </form><br><br>
 
+<form action="/create-client" method="post">
+    <input type="text" placeholder="Client's Name" name="clientName"/>
+    <input type="text" placeholder="Client's Hospital" name="clientHospital"/>
+    <input type="text" placeholder="Client's Email" name="clientEmail"/>
+    <input type="text" placeholder="Client's Phone" name="clientPhone"/>
+    <button type="submit">Add Client</button>
+</form>
+
 <table>
     <tr>
         <th>Client's Name</th>

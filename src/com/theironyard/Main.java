@@ -68,6 +68,17 @@ public class Main {
                     return null;
                 }
         );
+
+        Spark.post(
+                "/create-client",
+                (request, response) -> {
+                    Session session = request.session();
+                    String userName = session.attribute("username");
+                    User user = selectUser(conn, userName);
+
+                    return null;
+                }
+        );
     }
 
 
