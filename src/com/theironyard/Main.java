@@ -76,7 +76,7 @@ public class Main {
         Statement stmt = conn.createStatement();
         stmt.execute("CREATE TABLE IF NOT EXISTS users (id IDENTITY, name VARCHAR, password VARCHAR)");
         stmt.execute("CREATE TABLE IF NOT EXISTS clients (id IDENTITY, name VARCHAR, hospital VARCHAR, " +
-                "email VARCHAR, phone VARCHAR, street VARCHAR, city VARCHAR, state VARCHAR, zip VARCHAR, userID INT)");
+                "email VARCHAR, phone VARCHAR, street VARCHAR, city VARCHAR, state VARCHAR, zip VARCHAR)");
     }
 
     public static void insertUser(Connection conn, String name, String password) throws SQLException {
@@ -97,8 +97,25 @@ public class Main {
         }
         return null;
     }
-    public static ArrayList<Client> selectClients(Connection conn, User user) {
-        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM clients INNER JOIN users ON users.id = " +
-                "clients.userID WHERE")
+    public static ArrayList<Client> selectClients(Connection conn, User user) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM clients");
+        ResultSet results = stmt.executeQuery();
+        ArrayList<Client> clients = new ArrayList<>();
+        while (results.next()) {
+            int id = results.getInt("id");
+            String name = results.getString("name");
+            String hospital = results.getString("hospital");
+            String email = results.getString("email");
+            String phone = results.getString("phone");
+            String street = results.getString("street");
+            String city = results.getString("city");
+            String state = results.getString("state");
+            String zip = results.getString("zip");
+            int userID = user.id;
+            Client client = new Client(id, name, hospital, email, phone, street, city, state, zip);
+            clients.add(client);
+        }
+        return clients;
+
     }
 }
